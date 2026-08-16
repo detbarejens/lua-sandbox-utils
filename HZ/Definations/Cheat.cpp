@@ -21,6 +21,7 @@
 #include <fstream>
 #include <filesystem>
 #include <winhttp.h>
+#include "../Utils/Memory.hpp"
 
 #if defined(LICENSE_AUTH) && LICENSE_AUTH
 #include "Auth.hpp"
