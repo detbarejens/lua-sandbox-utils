@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8F3A1C2E-9B47-4D16-A8E2-7C4B91F0D3A5}</ProjectGuid>
+    <RootNamespace>HZ</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>HZ</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <MSVCPreviewEnabled>false</MSVCPreviewEnabled>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <HzDev Condition="'$(HzDev)'==''">true</HzDev>
+    <IncludePath>$(ProjectDir);$(ProjectDir)Slate\include\;$(ProjectDir)thirdparty\include\;$(ProjectDir)FrameWork\Dependencies\DirectX\Include\;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)FrameWork\Dependencies\DirectX\Lib\;$(DXSDK_DIR)\lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>..\build\release\</OutDir>
+    <FriendsBuildVersion Condition="'$(FriendsBuildVersion)'==''">1</FriendsBuildVersion>
+    <IntDir Condition="'$(HzDev)'=='true'">..\build\release\intermediate-dev\</IntDir>
+    <IntDir Condition="'$(HzDev)'!='true'">..\build\release\intermediate-retail\</IntDir>
+    <TargetName Condition="'$(HzDev)'=='true'">HZ-Dev</TargetName>
+    <TargetName Condition="'$(HzDev)'!='true'">HZ-Retail</TargetName>
+    <TrinityDefine>PRODUCT_VARIANT_C=1;</TrinityDefine>
+    <RebrandDefine></RebrandDefine>
+    <TrinityEncryptDefine></TrinityEncryptDefine>
+    <TrinityLockDefine></TrinityLockDefine>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64' and '$(HzDev)'=='true'">
+    <TrinityDevDefine>TRINITY_DEV=1;HZ_DEV=1;</TrinityDevDefine>
+    <LicenseAuthDefine></LicenseAuthDefine>
+    <FriendsBuildDefine></FriendsBuildDefine>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64' and '$(HzDev)'!='true'">
+    <TrinityDevDefine></TrinityDevDefine>
+    <LicenseAuthDefine>LICENSE_AUTH=1;</LicenseAuthDefine>
+    <FriendsBuildDefine>FRIENDS_BUILD=1;FRIENDS_BUILD_VERSION=$(FriendsBuildVersion);</FriendsBuildDefine>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>$(LicenseAuthDefine)$(RebrandDefine)$(TrinityDefine)$(TrinityDevDefine)$(TrinityEncryptDefine)$(TrinityLockDefine)$(FriendsBuildDefine)NDEBUG;_WINDOWS;STB_IMAGE_WRITE_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;IMGUI_DEFINE_MATH_OPERATORS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)Slate\include\;$(ProjectDir)thirdparty\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MinSpace</Optimization>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;d3dcompiler.lib;dxgi.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Definations\Cheat.cpp" />
+    <ClCompile Include="Definations\FriendsLicense.cpp" />
+    <ClCompile Include="Definations\FriendsUpdate.cpp" />
+    <ClCompile Include="Definations\TrinityLock.cpp" />
+    <ClCompile Include="Features\LegitBot\AimBot.cpp" />
+    <ClCompile Include="Features\LegitBot\Magic.cpp" />
+    <ClCompile Include="Features\LegitBot\SilentAim.cpp" />
+    <ClCompile Include="Features\LegitBot\TriggerBot.cpp" />
+    <ClCompile Include="Features\Misc\Exploits.cpp" />
+    <ClCompile Include="Features\Dev\LuaExecutor.cpp" />
+    <ClCompile Include="Features\Dev\LuaRuntime.cpp" />
+    <ClCompile Include="Features\Dev\LuaProcessInject.cpp" />
+    <ClCompile Include="Features\Dev\DevBridge.cpp" />
+    <ClCompile Include="Features\Dev\DevBridgeHttp.cpp" />
+    <ClCompile Include="Features\Dev\DevPanel.cpp" />
+    <ClCompile Include="Features\Dev\ServerDump.cpp" />
+    <ClCompile Include="Features\Misc\PlateBridge.cpp" />
+    <ClCompile Include="Features\Misc\PlateNative.cpp" />
+    <ClCompile Include="Features\Visuals\Player\ObserverAlert.cpp" />
+    <ClCompile Include="Features\Visuals\Player\PlayerESP.cpp" />
+    <ClCompile Include="Features\Visuals\Vehicle\VehicleESP.cpp" />
+    <ClCompile Include="FivemSDK\Fivem.cpp" />
+    <ClCompile Include="FrameWork\Utilities\Discord.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="FiveM-External.cpp" />
+    <ClCompile Include="Render\Assets\Assets.cpp" />
+    <ClCompile Include="Render\Interface.cpp" />
+    <ClCompile Include="Render\Overlay.cpp" />
+    <ClCompile Include="Render\WaitingWindow.cpp" />
+    <ClCompile Include="Render\GameMirror.cpp" />
+    <ClCompile Include="Slate\src\draw.cpp" />
+    <ClCompile Include="Slate\src\search.cpp" />
+    <ClCompile Include="Slate\src\slate.cpp" />
+    <ClCompile Include="Slate\src\style.cpp" />
+    <ClCompile Include="Slate\src\widgets.cpp" />
+    <ClCompile Include="thirdparty\include\esppreview.cpp" />
+    <ClCompile Include="thirdparty\include\shadertoy.cpp" />
+    <ClCompile Include="WebControl\WebServer.cpp" />
+    <ClCompile Include="Utils\Memory.cpp" />
+    <ClCompile Include="Utils\BrandPaths.cpp" />
+    <ClCompile Include="Utils\LocalConfig.cpp" />
+    <ClCompile Include="Utils\Misc.cpp" />
+    <ClCompile Include="Utils\VisibilityCheck.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Definations\Cheat.hpp" />
+    <ClInclude Include="Definations\FriendsCrypto.hpp" />
+    <ClInclude Include="Definations\FriendsLicense.hpp" />
+    <ClInclude Include="Definations\FriendsLicensePub.hpp" />
+    <ClInclude Include="Definations\FriendsUpdate.hpp" />
+    <ClInclude Include="Definations\Variables.hpp" />
+    <ClInclude Include="Features\LegitBot\AimBot.hpp" />
+    <ClInclude Include="Features\LegitBot\Magic.hpp" />
+    <ClInclude Include="Features\LegitBot\SilentAim.hpp" />
+    <ClInclude Include="Features\LegitBot\TriggerBot.hpp" />
+    <ClInclude Include="Features\Misc\Exploits.hpp" />
+    <ClInclude Include="Features\Visuals\Player\PlayerESP.hpp" />
+    <ClInclude Include="Features\Visuals\Vehicle\VehicleESP.hpp" />
+    <ClInclude Include="FiveM-External.hpp" />
+    <ClInclude Include="FivemSDK\Classes.hpp" />
+    <ClInclude Include="FivemSDK\Fivem.hpp" />
+    <ClInclude Include="FivemSDK\GTADefines.hpp" />
+    <ClInclude Include="FivemSDK\Offsets.hpp" />
+    <ClInclude Include="FrameWork\Utilities\Discord.hpp" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\imstb_rectpack.h" />
+    <ClInclude Include="ImGui\imstb_textedit.h" />
+    <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Math\Matrix4x4.hpp" />
+    <ClInclude Include="Math\Vectors\Vector2D.hpp" />
+    <ClInclude Include="Math\Vectors\Vector3D.hpp" />
+    <ClInclude Include="Math\Vectors\Vector4D.hpp" />
+    <ClInclude Include="Render\Assets\Assets.hpp" />
+    <ClInclude Include="Render\Assets\Data\FontAwesome.hpp" />
+    <ClInclude Include="Render\Assets\Data\FontData.hpp" />
+    <ClInclude Include="Render\Assets\Data\ImageData.hpp" />
+    <ClInclude Include="Render\CustomWidgets\Notify.hpp" />
+    <ClInclude Include="Render\DiscordAvatar.hpp" />
+    <ClInclude Include="Render\Interface.hpp" />
+    <ClInclude Include="Render\Overlay.hpp" />
+    <ClInclude Include="Render\GameMirror.hpp" />
+    <ClInclude Include="Render\WaitingWindow.hpp" />
+    <ClInclude Include="Render\CustomWidgets\AnimatedWidgets.hpp" />
+    <ClInclude Include="WebControl\WebServer.hpp" />
+    <ClInclude Include="WebControl\OverlayRenderer.hpp" />
+    <ClInclude Include="Security\LazyImporter.hpp" />
+    <ClInclude Include="Security\XorStr.hpp" />
+    <ClInclude Include="Utils\BrandPaths.hpp" />
+    <ClInclude Include="Utils\LocalConfig.hpp" />
+    <ClInclude Include="Utils\Memory.hpp" />
+    <ClInclude Include="Utils\Misc.hpp" />
+    <ClInclude Include="Utils\VisibilityCheck.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets" Condition="Exists('..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets'))" />
+  </Target>
+</Project>

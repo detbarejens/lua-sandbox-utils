@@ -1,0 +1,15 @@
+.vs/
+build/
+**/x64/
+**/*.user
+**/*.aps
+**/*.obj
+**/*.exe
+**/*.pdb
+**/*.ilk
+tools/KeyGen/friends-private.bin
+tools/KeyGen/friends-public.bin
+tools/KeyGen/friends-keys.json
+tools/KeyGen/github_token.txt
+Client/
+Data/
